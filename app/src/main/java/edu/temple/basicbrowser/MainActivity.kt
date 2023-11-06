@@ -28,5 +28,20 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        goButton.setOnClickListener{LoadURL()}
+
+    }
+
+    private fun LoadURL(){
+        val url= urlEditText.editableText.toString()
+
+        if (!url.isEmpty()){
+            if(!url.contains("https://www.")){
+                webView.loadUrl("https://www." + url)
+            }
+            else{
+                webView.loadUrl(url)
+            }
+        }
     }
 }
